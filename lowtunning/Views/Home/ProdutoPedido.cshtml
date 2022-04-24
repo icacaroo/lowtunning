@@ -1,0 +1,58 @@
+﻿
+@model IEnumerable<lowtunning.Models.Produtosm>
+@{
+    ViewBag.Title = "ProdutoPedido";
+}
+
+<h2>Carrinho</h2>
+
+
+@using (Html.BeginForm("ProdutoPedido", "Homne", FormMethod.Post))
+{
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayName("Produto")
+        </th>
+
+        <th>
+            @Html.DisplayName("Valor do produto")
+        </th>
+
+    </tr>
+
+    @foreach (var produtos in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => produtos.nome_prod)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => produtos.valor_prod)
+    </td>
+
+
+
+    <td>
+
+        @if (Session["status"].ToString() == "3")
+        {
+        @Html.ActionLink("Marcar", "MarcarProd", new { id = produtos.prodvenda }, new { @class = "btn btn-warning" })        
+        }
+
+
+    </td>
+</tr>
+
+    }
+
+
+</table>
+    <br />
+
+}
+
+ 

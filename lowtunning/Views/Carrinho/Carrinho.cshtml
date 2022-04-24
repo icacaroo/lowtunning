@@ -1,0 +1,50 @@
+﻿@model IEnumerable<lowtunning.Models.Carrinho>
+@{
+    ViewBag.Title = "Carrinho";
+}
+
+<h2>Carrinho</h2>
+
+
+@using (Html.BeginForm("Carrinho", "Carrinho", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Código de venda")
+            </th>
+            <th>
+                @Html.DisplayName("Produtos")
+            </th>
+            <th>
+                @Html.DisplayName("Quantidade de produtos")
+            </th>
+            <th>
+                @Html.DisplayName("Valor do produto")
+            </th>
+
+        </tr>
+
+        @foreach (var carrinho in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => carrinho.codvenda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => carrinho.nome_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => carrinho.prodqtd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => carrinho.valor_prod)
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+    <input type="submit" value="Comprar" class="btn btn-success" />
+}

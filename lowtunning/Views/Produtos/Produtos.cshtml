@@ -1,0 +1,86 @@
+﻿@model IEnumerable<lowtunning.Models.Produtosm>
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+@using (Html.BeginForm("Produtos", "Produtos", FormMethod.Post))
+{
+    if (Session["status"] != null)
+    {
+        if (Session["status"].ToString() == "2" || (Session["status"].ToString() == "1"))
+        {
+            @Html.ActionLink("Incluir novo produto", "IncluirProduto", "Produtos", new { @class = "btn btn-primary" })}
+    }
+}
+    @*@Html.ActionLink("Incluir novo produto", "IncluirProduto", "Produtos", new { @class = "btn btn-sucess" })*@
+    <br />
+    <table class="table">
+
+
+        <tr>
+            <th>
+                @Html.DisplayName("Código do Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Descrição do Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Marca do Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Valor do Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Tipo do Produto")
+            </th>
+
+        </tr>
+
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.cod_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.nome_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.marca_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.valor_prod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.descricaotipo)
+                </td>
+
+
+
+                <td>
+
+
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = produto.cod_prod }, new { @class = "btn btn-success" })
+
+
+
+                    @if (Session["status"] != null)
+                    {
+                        if (Session["status"].ToString() == "2")
+                        {
+                            @Html.ActionLink("Editar produto", "EditProduto", new { id = produto.cod_prod }, new { @class = "btn btn-warning" })
+
+
+
+                            @Html.ActionLink("Deletar produto", "ExcluirProd", new { id = produto.cod_prod }, new { @class = "btn btn-warning" })
+                        }
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+

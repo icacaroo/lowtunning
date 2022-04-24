@@ -1,0 +1,180 @@
+﻿@model lowtunning.Models.Usuarios
+
+
+@using (Html.BeginForm("IncluirFunc", "Home", FormMethod.Post))
+{
+    ViewBag.Title = "IncluirFuncionario";
+
+    <fieldset>
+        <h2>Incluir Funcionário</h2>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.usuario, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtNome",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o Nome de Usuário",
+                   required = "insira o nome",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.usuario, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.Senha, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtSenha",
+                   type = "password",
+                   @class = "form-control",
+                   placeholder = "Digite a senha",
+                   required = "insira a senha de usuario",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.Senha, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.email, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtemail",
+                   type = "email",
+                   @class = "form-control",
+                   placeholder = "Digite o email",
+                   required = "insira o email",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.email, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.telefone, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtelefone",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o telefone",
+                   required = "insira o telefone",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.telefone, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.cpf, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtcpf",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o cpf",
+                   required = "insira o cpf",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.cpf, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.endereço, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtend",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o endereço",
+                   required = "insira o endereço",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.endereço, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        @*<div class="form-group">
+             <div class=" input-group">
+                 <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                 @Html.EditorFor(x => x.imagem, new
+            {
+                HtmlAttributes = new
+                     {
+                         id = "txtimagem",
+                         type = "image",
+                         @class = "form-control",
+                    placeholder = "Escolha a imagem",
+                         required = "insira a imagem",
+                         maxlength = "40"
+                     }
+
+            })
+                 @Html.ValidationMessageFor(x => x.imagem, "", new { @class = "text-danger" })*@
+
+        @*</div>*@
+
+        <input type="submit" class="button buttoan-a button-big button- rouded" value="Adicionar Funcionário" name="incluir" /><br />
+
+        @*@Html.ActionLink("Incluir novo produto", "IncluirProduto", "Produtos", new { @class = "btn btn-sucess" });*@
+
+
+        <br />
+
+
+    </fieldset>
+
+
+
+
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<lowtunning.Models.Usuarios>
+@{
+    ViewBag.Title = "Funcionarios";
+}
+
+<h2>Funcionários</h2>
+
+<p><a href="http://localhost:50782/IncluirFunc/Home" class="btn btn-primary">Incluir novo funcionário&raquo;</a></p>
+
+
+
+@using (Html.BeginForm("Funcionarios", "Home", FormMethod.Post))
+{ 
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Código Funcinário")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Nome do Funcinário")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Telefone do Funcinário")
+                    </th>
+                    <th>
+                        @Html.DisplayName("CPF do Funcinário")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Email do Funcinário")
+                    </th>
+                </tr>
+
+                @foreach (var usuarios in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => usuarios.cod_login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => usuarios.usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => usuarios.telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => usuarios.cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => usuarios.email)
+                </td>
+
+
+                <td>
+
+
+                    
+                            @Html.ActionLink("Editar", "EditFuncionario", new { id = usuarios.cod_login }, new { @class = "btn btn-warning" })
+
+                            @Html.ActionLink("Deletar", "ExcluirFunc", new { id = usuarios.cod_login }, new { @class = "btn btn-warning" })
+                      
+            </tr>
+                }
+                
+
+            </table>
+    
+}
+

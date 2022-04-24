@@ -1,0 +1,49 @@
+﻿@model IEnumerable<lowtunning.Models.Produtosm>
+@{
+    ViewBag.Title = "Pedido";
+}
+
+<h2>Produtos</h2>
+@using (Html.BeginForm("Pedido", "Home", FormMethod.Post))
+{
+    
+    <br />
+    <table class="table">
+
+
+        <tr>
+            <th>
+                @Html.DisplayName("Quantidade de Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Valor da Compra")
+            </th>
+        </tr>
+
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.qtd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => produto.valor_prod)
+                </td>
+             
+
+
+
+                <td>
+
+     
+                @Html.ActionLink("Ver Compra", "ProdutoPedido", new { id = produto.cd_venda }, new { @class = "btn btn-success" })
+                        
+                    
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}
+

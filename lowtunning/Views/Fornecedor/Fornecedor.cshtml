@@ -1,0 +1,80 @@
+﻿@model IEnumerable<lowtunning.Models.Fornecedor>
+
+
+<h2>Fornecedores</h2>
+
+@Html.ActionLink("Incluir novo Fornecedor", "IncluirForn", "Fornecedor", new { @class = "btn btn-success" })
+
+
+
+@using (Html.BeginForm("Fornecedor", "Fornecedor", FormMethod.Post))
+{
+
+
+    <table class="table">
+
+
+        <tr>
+            <th>
+                @Html.DisplayName("Código do Fornecedor")
+            </th>
+            <th>
+                @Html.DisplayName("Nome do Fornecedor")
+            </th>
+            <th>
+                @Html.DisplayName("Descrição do Fornecedor")
+            </th>
+            <th>
+                @Html.DisplayName("CNPJ")
+            </th>
+            <th>
+                @Html.DisplayName("Endereço")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Telefone")
+            </th>
+        </tr>
+
+        @foreach (var fornecedor in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.idforn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.nomeforn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.descricaoforn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.cnpj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.endereço)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => fornecedor.telefone)
+        </td>
+        <td>
+
+
+
+            @Html.ActionLink("Editar", "EditarForn", new { id = fornecedor.idforn }, new { @class = "btn btn-warning" })
+
+            @Html.ActionLink("Deletar", "ExcluirForn", new { id = fornecedor.idforn }, new { @class = "btn btn-warning" })
+
+    </tr>
+        }
+
+    </table>
+
+}
+
+

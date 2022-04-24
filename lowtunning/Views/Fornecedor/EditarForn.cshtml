@@ -1,0 +1,106 @@
+﻿
+@model lowtunning.Models.Fornecedor
+@{
+    ViewBag.Title = "EditFornecedor";
+}
+<h1>Editar Fornecedor</h1>
+<hr />
+@using (Html.BeginForm("EditarForn", "Fornecedor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Nome Fornecedor", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.nomeforn,
+                               new { @class = "form-control", @placeholder = "Nome do produto" })
+            @Html.ValidationMessageFor(m => m.nomeforn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Descrição", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.descricaoforn,
+                               new { @class = "form-control", @placeholder = "Descrição do produto" })
+            @Html.ValidationMessageFor(m => m.descricaoforn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("CNPJ", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.cnpj,
+                               new { @class = "form-control", @placeholder = "Preço do produto" })
+            @Html.ValidationMessageFor(m => m.cnpj, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Endereço", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.endereço,
+                               new { @class = "form-control", @placeholder = "Preço do produto" })
+            @Html.ValidationMessageFor(m => m.endereço, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Email", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.email,
+                               new { @class = "form-control", @placeholder = "Preço do produto" })
+            @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Telefone", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.telefone,
+                               new { @class = "form-control", @placeholder = "Preço do produto" })
+            @Html.ValidationMessageFor(m => m.telefone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Editar Fornecedor" class="btn btn-success" />
+
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

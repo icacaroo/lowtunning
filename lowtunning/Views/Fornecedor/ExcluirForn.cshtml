@@ -1,0 +1,61 @@
+﻿@model lowtunning.Models.Fornecedor
+@{
+    ViewBag.Title = "ExcluirForn";
+}
+<h2>Deletar Funcionário</h2>
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Nome Fornecedor", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.nomeforn,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Descrição", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.descricaoforn,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("CNPJ", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.cnpj,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Endereço", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.endereço,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Email", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.email,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Telefone", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.telefone,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Deletar Fornecedor" class="btn btn-danger" />
+            <br />
+            @Html.ActionLink("Cancelar", "Fornecedor", "Fornecedor", new { @class = "btn btn-warning" })
+        </div>
+    </div>
+}

@@ -1,0 +1,56 @@
+﻿@model lowtunning.Models.Produtosm
+@{
+    ViewBag.Title = "Detalhes";
+}
+<h3 class="text-danger">Detalhes do Produto</h3>
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Descrição Produto", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.nome_prod,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @*@Html.LabelFor(m => m.marca_prod, new { @class = "control-label col-md-2" })*@
+
+        @Html.Label("Marca", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.marca_prod,
+                                      new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Valor Produto", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.valor_prod,
+                          new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <img src="@Model.imagem" alt="@Model.nome_prod image" class="img-thumbnail" width="350" height="350" />
+        </div>
+    </div>
+
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @*@Html.ActionLink("Adicionar ao Carrinho", "Carrinho", "Carrinho", new { @class = "btn btn-warning" })*@
+            @if (Session["status"] != null)
+            {
+            if (Session["status"].ToString() == "3")
+            {
+            <input type="submit" class="button buttoan-a button-big button- rouded" value="Adicionar Produto" />
+            }
+            }
+            <br />
+            @Html.ActionLink("Voltar", "Produtos", "Produtos", new { @class = "btn btn-warning" })
+        </div>
+    </div>
+}

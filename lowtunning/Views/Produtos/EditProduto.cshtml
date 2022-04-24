@@ -1,0 +1,90 @@
+﻿
+@model lowtunning.Models.Produtosm 
+<h1>Editar Produto</h1>
+<hr />
+@using (Html.BeginForm("EditProduto", "Produtos", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Descrição produto", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.nome_prod,
+                               new { @class = "form-control", @placeholder = "Nome do produto" })
+            @Html.ValidationMessageFor(m => m.nome_prod, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Marca do produto", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.marca_prod,
+                               new { @class = "form-control", @placeholder = "Descrição do produto" })
+            @Html.ValidationMessageFor(m => m.marca_prod, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Valor", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.valor_prod,
+                               new { @class = "form-control", @placeholder = "Preço do produto" })
+            @Html.ValidationMessageFor(m => m.valor_prod, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.Label("Tipo de Produto", new { @clasas = "control label cod-md2" })
+            @{
+                List<SelectListItem> listItems = new List<SelectListItem>();
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Suspensão",
+                    Value = "Suspensao"
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Som",
+                    Value = "Som",
+
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Envelopamento",
+                    Value = "Envelopamento"
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Tunagem",
+                    Value = "Tunagem",
+
+                });
+
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Rodas",
+                    Value = "Rodas",
+
+                });
+
+            }
+
+            @Html.DropDownListFor(model => model.idtipo, listItems, "", new { htmlAttributes = new { @class = "form-control", } })
+        </div>
+        </div>
+    
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Salvar Produto" class="btn btn-success" />
+
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+ 

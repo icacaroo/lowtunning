@@ -1,0 +1,158 @@
+﻿@model lowtunning.Models.Produtosm
+
+
+@using (Html.BeginForm("EditarProd", "Produtos", FormMethod.Post))
+{
+    ViewBag.Title = "EditarProduto";
+
+    <fieldset>
+        <h2>Editar Produto</h2>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.cod_prod, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtcod",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o codigo do produto",
+                   required = "insira o codigo",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.cod_prod, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.nome_prod, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtNome",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite a Descrição do Produto",
+                   required = "insira o nome",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.nome_prod, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.marca_prod, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtmarca",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite a marca",
+                   required = "insira a marca",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.marca_prod, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+
+                @Html.EditorFor(x => x.valor_prod, new
+           {
+               HtmlAttributes = new
+               {
+                   id = "txtvalor",
+                   type = "text",
+                   @class = "form-control",
+                   placeholder = "Digite o valor do produto",
+                   required = "insira o valor",
+                   maxlength = "40"
+               }
+
+           })
+                @Html.ValidationMessageFor(x => x.valor_prod, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" input-group">
+                <span class="input-group-addon"><i style="font-size:20px;" class="fas fa-envelope"></i></span>
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Suspensão",
+                        Value = "Suspensao"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Som",
+                        Value = "Som",
+
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Envelopamento",
+                        Value = "Envelopamento"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Tunagem",
+                        Value = "Tunagem",
+
+                    });
+
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Rodas",
+                        Value = "Rodas",
+
+                    });
+
+                }
+
+                @Html.DropDownListFor(model => model.idtipo, listItems, "", new { htmlAttributes = new { @class = "form-control", } })
+            </div>
+        </div>
+
+
+
+        <input type="submit" class="button buttoan-a button-big button- rouded" value="Editar Produto" name="incluir" /><br />
+
+        @*@Html.ActionLink("Incluir novo produto", "IncluirProduto", "Produtos", new { @class = "btn btn-sucess" });*@
+
+
+        <br />
+
+
+    </fieldset>
+
+
+
+
+}
